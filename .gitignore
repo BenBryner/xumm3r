@@ -4,6 +4,7 @@
 # next.js
 /.next
 /out
+.next/
 
 # production
 /build
@@ -11,6 +12,10 @@
 # misc
 .DS_Store
 *.pem
+.local/
+.npm-cache/
+Library/
+xumm3r repo/
 
 # debug
 npm-debug.log*

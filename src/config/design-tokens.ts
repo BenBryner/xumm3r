@@ -2,7 +2,7 @@ import { contentPalette } from "@/config/content-palette";
 
 export const designTokens = {
   colors: {
-    background: "#0C0C0C",
+    background: "#000000",
     textOnBackground: "#FFFFFF",
     textOnLight: "#0F0E0F",
     textMuted: "#866F70",
@@ -13,7 +13,6 @@ export const designTokens = {
     surfaceTint: "#111111",
     surfaceOutline: "#493342",
     surfaceOutlineHover: "#DFAF05",
-    cursorTrailPalette: contentPalette.globalAccents,
     contentAccents: contentPalette.globalAccents,
     contentDominant: contentPalette.globalDominant
   },
@@ -55,15 +54,11 @@ export const designTokens = {
     pageExitEase: "ease-in",
     widgetHoverDurationMs: 700,
     widgetHoverEase: "ease-in-out",
-    linkColorDurationMs: 200,
-    cursorTrailFadeMs: 1000,
-    cursorTrailDelayMs: 200
+    linkColorDurationMs: 200
   },
   cursor: {
     sizePx: 12,
     opacity: 0.9,
-    minTrailSizePx: 4,
-    maxTrailSizePx: 12,
     zIndex: 1000
   },
   contentAnalysis: {
@@ -117,8 +112,6 @@ export const cssVariables: Record<`--${string}`, string> = {
   "--motion-page-enter": `${designTokens.motion.pageEnterDurationMs}ms`,
   "--motion-widget-hover": `${designTokens.motion.widgetHoverDurationMs}ms`,
   "--motion-link-color": `${designTokens.motion.linkColorDurationMs}ms`,
-  "--motion-cursor-fade": `${designTokens.motion.cursorTrailFadeMs}ms`,
-  "--motion-cursor-delay": `${designTokens.motion.cursorTrailDelayMs}ms`,
   "--cursor-size": `${designTokens.cursor.sizePx}px`,
   "--cursor-opacity": `${designTokens.cursor.opacity}`
 };

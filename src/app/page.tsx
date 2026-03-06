@@ -5,7 +5,12 @@ import { featuredAssets } from "@/config/content-catalog";
 export default function HomePage() {
   return (
     <PortfolioShell pageKicker="" pageTitle="" pageSubtitle="">
-      <AssetGrid assets={featuredAssets} ariaLabel="Featured work" />
+      <AssetGrid
+        assets={featuredAssets}
+        ariaLabel="Featured work"
+        linkMode="category-asset"
+        stripParentheticalTitleText
+      />
     </PortfolioShell>
   );
 }

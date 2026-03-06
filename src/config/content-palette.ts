@@ -1,6 +1,6 @@
 export const contentPalette = {
-  "generatedAt": "2026-02-27T08:38:09.908880+00:00",
-  "assetsProcessed": 29,
+  "generatedAt": "2026-03-04T22:55:00.000000+00:00",
+  "assetsProcessed": 33,
   "globalAccents": [
     "#670F85",
     "#866F70",
@@ -54,15 +54,6 @@ export const contentPalette = {
       "#4CA3C9",
       "#B1D5EC",
       "#B0998A"
-    ],
-    "NEEDORKEEP WORK": [
-      "#670F85",
-      "#866F70",
-      "#493342",
-      "#D6BCB6",
-      "#CE9EDD",
-      "#251F2A",
-      "#7C85B2"
     ],
     "PERSONAL": [
       "#D4B388",

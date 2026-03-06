@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { designTokens } from "@/config/design-tokens";
 
 export function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -17,45 +16,16 @@ export function CustomCursor() {
     const body = document.body;
     body.classList.add("custom-cursor-enabled");
 
-    const onMove = (event: MouseEvent) => {
-      cursor.style.left = `${event.pageX}px`;
-      cursor.style.top = `${event.pageY}px`;
-
-      const trail = document.createElement("div");
-      trail.className = "vector-point";
-
-      const palette = designTokens.colors.cursorTrailPalette;
-      const color = palette[Math.floor(Math.random() * palette.length)];
-      const min = designTokens.cursor.minTrailSizePx;
-      const max = designTokens.cursor.maxTrailSizePx;
-      const size = Math.random() * (max - min) + min;
-
-      trail.style.left = `${event.pageX}px`;
-      trail.style.top = `${event.pageY}px`;
-      trail.style.width = `${size}px`;
-      trail.style.height = `${size}px`;
-      trail.style.backgroundColor = color;
-
-      body.appendChild(trail);
-
-      window.setTimeout(() => {
-        trail.style.opacity = "0";
-        trail.addEventListener(
-          "transitionend",
-          () => {
-            trail.remove();
-          },
-          { once: true }
-        );
-      }, designTokens.motion.cursorTrailDelayMs);
+    const onMove = (event: PointerEvent) => {
+      cursor.style.left = `${event.clientX}px`;
+      cursor.style.top = `${event.clientY}px`;
     };
 
-    document.addEventListener("mousemove", onMove, { passive: true });
+    document.addEventListener("pointermove", onMove, { passive: true });
 
     return () => {
-      document.removeEventListener("mousemove", onMove);
+      document.removeEventListener("pointermove", onMove);
       body.classList.remove("custom-cursor-enabled");
-      document.querySelectorAll(".vector-point").forEach((node) => node.remove());
     };
   }, []);
 

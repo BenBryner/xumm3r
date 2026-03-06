@@ -13,7 +13,7 @@ type SectionPageProps = {
 };
 
 function formatCategoryLabel(category: string) {
-  return category === "NEEDORKEEP WORK" ? "Needorkeep Work" : category;
+  return category;
 }
 
 export function generateStaticParams() {
@@ -36,7 +36,13 @@ export default async function SectionPage({ params }: SectionPageProps) {
       pageTitle={formatCategoryLabel(category)}
       pageSubtitle={`${assets.length} items`}
     >
-      <AssetGrid assets={assets} ariaLabel={`${category} work`} metaMode="dimensions" />
+      <AssetGrid
+        assets={assets}
+        ariaLabel={`${category} work`}
+        metaMode="dimensions"
+        previewMode="modal"
+        showCardMeta={false}
+      />
     </PortfolioShell>
   );
 }

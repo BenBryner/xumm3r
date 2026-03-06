@@ -1,3 +1,6 @@
+ "use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
@@ -11,7 +14,7 @@ type PortfolioShellProps = {
 };
 
 function formatCategoryLabel(category: string) {
-  return category === "NEEDORKEEP WORK" ? "Needorkeep" : category;
+  return category;
 }
 
 const navLinkClass =
@@ -22,6 +25,20 @@ const railLinkClass =
 
 export function PortfolioShell({ pageTitle, pageKicker, pageSubtitle, children }: PortfolioShellProps) {
   const hasHero = Boolean(pageKicker.trim() || pageTitle.trim() || pageSubtitle.trim());
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 700) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
 
   return (
     <div
@@ -46,7 +63,7 @@ export function PortfolioShell({ pageTitle, pageKicker, pageSubtitle, children }
           )}
         </Link>
 
-        <nav className="absolute left-[var(--desktop-nav-start)] top-[var(--space-md)] flex items-center gap-[86px] whitespace-nowrap max-[1024px]:static max-[1024px]:translate-y-0 max-[1024px]:gap-[var(--space-sm)] max-[700px]:w-full max-[700px]:justify-start max-[700px]:gap-[var(--space-md)] max-[700px]:overflow-x-auto max-[700px]:no-scrollbar">
+        <nav className="absolute left-[var(--desktop-nav-start)] top-[var(--space-md)] flex items-center gap-[48px] whitespace-nowrap pr-[140px] max-[1024px]:static max-[1024px]:translate-y-0 max-[1024px]:gap-[var(--space-sm)] max-[1024px]:pr-0 max-[700px]:hidden">
           <Link className={navLinkClass} href="/">
             Home
           </Link>
@@ -56,40 +73,61 @@ export function PortfolioShell({ pageTitle, pageKicker, pageSubtitle, children }
             </Link>
           ))}
         </nav>
-      </header>
 
-      <aside className="fixed left-[var(--desktop-gutter)] top-[calc(var(--layout-top-bar)+var(--space-sm))] z-[120] flex w-[var(--layout-left-rail)] flex-col max-[1024px]:static max-[1024px]:min-h-0 max-[1024px]:w-auto max-[1024px]:px-[var(--space-xs)] max-[1024px]:pt-[calc(var(--layout-top-bar)+env(safe-area-inset-top)+var(--space-sm))]">
-        <p className="m-0 font-[var(--font-meta)] text-[length:var(--size-micro)] leading-[var(--lh-micro)] normal-case">
-          Available For Select Projects
-        </p>
-        <p className="mb-[var(--space-md)] mt-[var(--space-sm)] font-[var(--font-body)] text-[length:var(--size-micro)] leading-[var(--lh-micro)] normal-case">
-          Cover art, flyers, posters, and visual experiments. Replace this bio with your own short line.
-        </p>
+        <button
+          type="button"
+          className={`${navLinkClass} hidden max-[700px]:inline-flex`}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-nav-panel"
+          onClick={() => setIsMobileMenuOpen((open) => !open)}
+        >
+          {isMobileMenuOpen ? "Close" : "Menu"}
+        </button>
 
-        <div className="grid gap-[var(--space-xs)]">
-          <a className={railLinkClass} href="mailto:you@example.com">
+        <div className="absolute right-[var(--desktop-gutter)] top-[var(--space-md)] flex flex-col items-end gap-[var(--space-xs)] max-[700px]:hidden">
+          <a className={railLinkClass} href="mailto:xumm3rr@gmail.com">
             Email
           </a>
           <a
             className={railLinkClass}
-            href="https://www.instagram.com/moja.files/"
+            href="https://www.instagram.com/xumm3r/"
             target="_blank"
             rel="noreferrer"
           >
             Instagram
           </a>
+          <Link className={railLinkClass} href="/resume">
+            Resume
+          </Link>
         </div>
+      </header>
 
-        <a className={`${railLinkClass} order-2 mt-[var(--space-xs)]`} href="#">
-          Resume
-        </a>
+      {isMobileMenuOpen ? (
+        <nav
+          id="mobile-nav-panel"
+          className="mobile-menu-panel"
+          aria-label="Mobile navigation"
+        >
+          <Link className={navLinkClass} href="/" onClick={() => setIsMobileMenuOpen(false)}>
+            Home
+          </Link>
+          {categoryOrder.map((category) => (
+            <Link
+              key={category}
+              className={navLinkClass}
+              href={`/${getCategorySlug(category)}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {formatCategoryLabel(category)}
+            </Link>
+          ))}
+        </nav>
+      ) : null}
 
-        <div className="order-3 mt-[var(--space-sm)] grid w-full max-w-[240px] gap-[var(--space-xxs)] max-[700px]:mt-[var(--space-md)] max-[700px]:w-[132px] max-[700px]:max-w-none max-[430px]:w-[120px]" aria-label="Visuals">
-          <p className="m-0 font-[var(--font-display)] text-[length:var(--size-micro)] leading-[var(--lh-micro)] uppercase">
-            visuals
-          </p>
+      <aside className="fixed left-[var(--desktop-gutter)] top-[calc(var(--layout-top-bar)+var(--space-sm))] z-[120] flex w-[var(--layout-left-rail)] flex-col max-[1024px]:static max-[1024px]:min-h-0 max-[1024px]:w-auto max-[1024px]:px-[var(--space-xs)] max-[1024px]:pt-[calc(var(--layout-top-bar)+env(safe-area-inset-top)+var(--space-sm))] max-[700px]:hidden">
+        <div className="mt-[var(--space-sm)] grid w-full max-w-[240px] gap-[var(--space-xxs)] max-[700px]:mt-[var(--space-md)] max-[700px]:w-[132px] max-[700px]:max-w-none max-[430px]:w-[120px]" aria-label="Visuals">
           {visualsAsset ? (
-            <Link href="/personal#asset-personal-visuals-mp4" aria-label="Open visuals">
+            <Link href="/personal#asset-personal-personal-visual-mp4" aria-label="Open personal visual">
               <video
                 className="block h-auto w-full object-contain"
                 src={visualsAsset.src}
@@ -106,7 +144,9 @@ export function PortfolioShell({ pageTitle, pageKicker, pageSubtitle, children }
 
       <main
         id="main-content"
-        className="relative ml-[var(--desktop-content-start)] mr-[var(--desktop-gutter)] w-[calc(100vw-var(--desktop-content-start)-var(--desktop-gutter))] pb-[var(--space-xxl)] pt-[calc(var(--layout-top-bar)+var(--space-lg))] max-[1024px]:m-0 max-[1024px]:w-full max-[1024px]:pt-[var(--space-md)]"
+        className={`relative ml-[var(--desktop-content-start)] mr-[var(--desktop-gutter)] w-[calc(100vw-var(--desktop-content-start)-var(--desktop-gutter))] pb-[var(--space-xxl)] pt-[calc(var(--layout-top-bar)+var(--space-lg))] max-[1024px]:m-0 max-[1024px]:w-full max-[1024px]:pt-[var(--space-md)] ${
+          isMobileMenuOpen ? "max-[700px]:pt-[calc(var(--layout-top-bar)+220px)]" : ""
+        }`}
         tabIndex={-1}
       >
         {hasHero ? (
@@ -127,6 +167,40 @@ export function PortfolioShell({ pageTitle, pageKicker, pageSubtitle, children }
         ) : null}
 
         {children}
+
+        <section className="mobile-bottom-block" aria-label="Mobile links and visuals">
+          <div className="mobile-footer-links">
+            <a className={railLinkClass} href="mailto:xumm3rr@gmail.com">
+              Email
+            </a>
+            <a
+              className={railLinkClass}
+              href="https://www.instagram.com/xumm3r/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
+            <Link className={railLinkClass} href="/resume">
+              Resume
+            </Link>
+          </div>
+          <div className="mt-[var(--space-sm)] w-[140px]">
+            {visualsAsset ? (
+              <Link href="/personal#asset-personal-personal-visual-mp4" aria-label="Open personal visual">
+                <video
+                  className="block h-auto w-full object-contain"
+                  src={visualsAsset.src}
+                  muted
+                  autoPlay
+                  loop
+                  playsInline
+                  preload="metadata"
+                />
+              </Link>
+            ) : null}
+          </div>
+        </section>
       </main>
     </div>
   );

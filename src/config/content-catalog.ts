@@ -14,7 +14,7 @@ export const categoryOrder = [
   "covers",
   "graphics",
   "flyers",
-  "NEEDORKEEP WORK",
+  "VIDEOS",
   "PERSONAL"
 ] as const;
 
@@ -24,7 +24,7 @@ export const categorySlugMap: Record<CategoryName, string> = {
   covers: "covers",
   graphics: "graphics",
   flyers: "flyers",
-  "NEEDORKEEP WORK": "needorkeep-work",
+  VIDEOS: "videos",
   PERSONAL: "personal"
 };
 
@@ -42,7 +42,7 @@ export function getCategoryFromSlug(slug: string): CategoryName | undefined {
 export const allAssets: PortfolioAsset[] = [
   {
     "id": "covers-22-tg-jpg",
-    "title": "22 TG",
+    "title": "22 - TG",
     "category": "covers",
     "type": "image",
     "src": "/content/covers/22%20-%20TG.jpg",
@@ -52,7 +52,7 @@ export const allAssets: PortfolioAsset[] = [
   },
   {
     "id": "covers-b4-vic-vic-jpg",
-    "title": "B4 Vic Vic",
+    "title": "B4 Vic - Vic",
     "category": "covers",
     "type": "image",
     "src": "/content/covers/B4%20Vic%20-%20Vic.jpg",
@@ -62,7 +62,7 @@ export const allAssets: PortfolioAsset[] = [
   },
   {
     "id": "covers-beautriful-nightmare-iyagi-jpg",
-    "title": "Beautriful nightmare iyagi",
+    "title": "Beautriful nightmare - iyagi",
     "category": "covers",
     "type": "image",
     "src": "/content/covers/_Beautriful%20nightmare_%20-%20iyagi.jpg",
@@ -72,7 +72,7 @@ export const allAssets: PortfolioAsset[] = [
   },
   {
     "id": "covers-final-warning-glokk40spaz-jpg",
-    "title": "final warning glokk40spaz",
+    "title": "final warning - glokk40spaz",
     "category": "covers",
     "type": "image",
     "src": "/content/covers/final%20warning%20-%20glokk40spaz.jpg",
@@ -82,7 +82,7 @@ export const allAssets: PortfolioAsset[] = [
   },
   {
     "id": "covers-money-angel-iyagi-jpg",
-    "title": "Money Angel Iyagi",
+    "title": "Money Angel - Iyagi",
     "category": "covers",
     "type": "image",
     "src": "/content/covers/Money%20Angel%20-%20Iyagi.jpg",
@@ -122,7 +122,7 @@ export const allAssets: PortfolioAsset[] = [
   },
   {
     "id": "covers-vanguard-prototype-jpg",
-    "title": "Vanguard Prototype",
+    "title": "Vanguard - Prototype",
     "category": "covers",
     "type": "image",
     "src": "/content/covers/Vanguard%20-%20Prototype.jpg",
@@ -132,13 +132,90 @@ export const allAssets: PortfolioAsset[] = [
   },
   {
     "id": "covers-where-we-left-off-wxnter-jpg",
-    "title": "Where we left off Wxnter",
+    "title": "Where we left off - Wxnter",
     "category": "covers",
     "type": "image",
     "src": "/content/covers/_Where%20we%20left%20off_%20-%20Wxnter.jpg",
     "width": 1179,
     "height": 1179,
     "ratioClass": "square"
+  },
+  {
+    "id": "videos-autumn-saweb-editing-sequencing-coloring-mp4",
+    "title": "AUTUMN + SAWEB (EDITING, SEQUENCING, COLORING)",
+    "category": "VIDEOS",
+    "type": "video",
+    "src": "/content/videos/AUTUMN%20%2B%20SAWEB%20%28EDITING%2C%20SEQUENCING%2C%20COLORING%29.mp4",
+    "width": 3000,
+    "height": 2160,
+    "ratioClass": "wide",
+    "durationSeconds": 203.029
+  },
+  {
+    "id": "videos-dexelz-snippet-promotional-video-graphics-sequencing-editing-mp4",
+    "title": "Dexelz snippet promotional video(graphics, sequencing, editing)",
+    "category": "VIDEOS",
+    "type": "video",
+    "src": "/content/videos/Dexelz%20snippet%20promotional%20video%28graphics%2C%20sequencing%2C%20editing%29.mp4",
+    "width": 3840,
+    "height": 2160,
+    "ratioClass": "wide",
+    "durationSeconds": 16.213
+  },
+  {
+    "id": "videos-jesus-piece-ixvolt-editing-sequencing-mp4",
+    "title": "JESUS PIECE - IXVOLT (editing, sequencing)",
+    "category": "VIDEOS",
+    "type": "video",
+    "src": "/content/videos/JESUS%20PIECE%20-%20IXVOLT%20%28editing%2C%20sequencing%29.mp4",
+    "width": 1920,
+    "height": 1080,
+    "ratioClass": "wide",
+    "durationSeconds": 168.554
+  },
+  {
+    "id": "videos-nozoki-stage-visuals-mp4",
+    "title": "NOZOKI STAGE VISUALS",
+    "category": "VIDEOS",
+    "type": "video",
+    "src": "/content/videos/NOZOKI%20STAGE%20VISUALS.mp4",
+    "width": 960,
+    "height": 540,
+    "ratioClass": "wide",
+    "durationSeconds": 6.174
+  },
+  {
+    "id": "videos-rexv2-no-handz-titles-mp4",
+    "title": "REXV2 - NO HANDZ (TITLES)",
+    "category": "VIDEOS",
+    "type": "video",
+    "src": "/content/videos/REXV2%20-%20NO%20HANDZ%20%28TITLES%29.mp4",
+    "width": 1920,
+    "height": 1080,
+    "ratioClass": "wide",
+    "durationSeconds": 109.738
+  },
+  {
+    "id": "videos-rex-unused-visual-mp4",
+    "title": "Rex unused visual",
+    "category": "VIDEOS",
+    "type": "video",
+    "src": "/content/videos/Rex%20unused%20visual.mp4",
+    "width": 1280,
+    "height": 720,
+    "ratioClass": "wide",
+    "durationSeconds": 8.043
+  },
+  {
+    "id": "videos-stage-visuals-for-mp4",
+    "title": "STAGE VISUALS FOR \"5UCCUBU5\"",
+    "category": "VIDEOS",
+    "type": "video",
+    "src": "/content/videos/Stage%20visuals%20for%20.mp4",
+    "width": 1280,
+    "height": 720,
+    "ratioClass": "wide",
+    "durationSeconds": 20.715
   },
   {
     "id": "flyers-5star-rodney-flyer-jpg",
@@ -191,84 +268,64 @@ export const allAssets: PortfolioAsset[] = [
     "ratioClass": "tall"
   },
   {
-    "id": "graphics-horrorv2-jpg",
-    "title": "HORRORv2",
+    "id": "graphics-hyperpopdaily-flyer-jpg",
+    "title": "@hyperpopdaily flyer",
     "category": "graphics",
     "type": "image",
-    "src": "/content/graphics/HORRORv2.jpg",
-    "width": 864,
-    "height": 1080,
-    "ratioClass": "tall"
-  },
-  {
-    "id": "graphics-nohandz-jpg",
-    "title": "NOHANDZ",
-    "category": "graphics",
-    "type": "image",
-    "src": "/content/graphics/NOHANDZ.jpg",
-    "width": 2399,
-    "height": 1686,
-    "ratioClass": "square"
-  },
-  {
-    "id": "graphics-undergroundfest-jpg",
-    "title": "undergroundfest",
-    "category": "graphics",
-    "type": "image",
-    "src": "/content/graphics/undergroundfest.jpg",
+    "src": "/content/graphics/%40hyperpopdaily%20flyer.jpg",
     "width": 1080,
     "height": 1346,
     "ratioClass": "tall"
   },
   {
-    "id": "needorkeep-work-nok-graphic-2-jpg",
-    "title": "NOK GRAPHIC 2",
-    "category": "NEEDORKEEP WORK",
+    "id": "graphics-needorkeep-cover-v1-jpg",
+    "title": "@needorkeep cover v1",
+    "category": "graphics",
     "type": "image",
-    "src": "/content/NEEDORKEEP%20WORK/NOK%20GRAPHIC%202.jpg",
+    "src": "/content/graphics/%40needorkeep%20cover%20v1.jpg",
     "width": 1080,
     "height": 1350,
     "ratioClass": "tall"
   },
   {
-    "id": "needorkeep-work-nok-interview-cover-template-jpg",
-    "title": "NOK INTERVIEW COVER TEMPLATE",
-    "category": "NEEDORKEEP WORK",
+    "id": "graphics-needorkeep-cover-v2-jpg",
+    "title": "@needorkeep cover v2",
+    "category": "graphics",
     "type": "image",
-    "src": "/content/NEEDORKEEP%20WORK/NOK%20INTERVIEW%20COVER%20TEMPLATE.jpg",
+    "src": "/content/graphics/%40needorkeep%20cover%20v2.jpg",
+    "width": 1080,
+    "height": 1350,
+    "ratioClass": "tall"
+  },
+  {
+    "id": "graphics-needorkeep-graphic-jpg",
+    "title": "@needorkeep graphic",
+    "category": "graphics",
+    "type": "image",
+    "src": "/content/graphics/%40needorkeep%20graphic.jpg",
+    "width": 1080,
+    "height": 1350,
+    "ratioClass": "tall"
+  },
+  {
+    "id": "graphics-needorkeep-interview-cover-for-nino-paid-jpg",
+    "title": "@needorkeep interview cover for Nino Paid",
+    "category": "graphics",
+    "type": "image",
+    "src": "/content/graphics/%40needorkeep%20interview%20cover%20for%20Nino%20Paid.jpg",
     "width": 1080,
     "height": 1440,
     "ratioClass": "tall"
   },
   {
-    "id": "needorkeep-work-nok-template-v1-jpg",
-    "title": "NOK TEMPLATE V1",
-    "category": "NEEDORKEEP WORK",
+    "id": "graphics-nohandz-rexv2-unused-title-card-jpg",
+    "title": "NOHANDZ - Rexv2 (unused title card)",
+    "category": "graphics",
     "type": "image",
-    "src": "/content/NEEDORKEEP%20WORK/NOK%20TEMPLATE%20V1.jpg",
-    "width": 1080,
-    "height": 1350,
-    "ratioClass": "tall"
-  },
-  {
-    "id": "needorkeep-work-nok-template-v2-jpg",
-    "title": "NOK TEMPLATE V2",
-    "category": "NEEDORKEEP WORK",
-    "type": "image",
-    "src": "/content/NEEDORKEEP%20WORK/NOK%20TEMPLATE%20V2.jpg",
-    "width": 1080,
-    "height": 1350,
-    "ratioClass": "tall"
-  },
-  {
-    "id": "needorkeep-work-nok-template-v3-jpg",
-    "title": "NOK TEMPLATE V3",
-    "category": "NEEDORKEEP WORK",
-    "type": "image",
-    "src": "/content/NEEDORKEEP%20WORK/NOK%20TEMPLATE%20V3.jpg",
-    "width": 1080,
-    "height": 1350,
-    "ratioClass": "tall"
+    "src": "/content/graphics/NOHANDZ%20-%20Rexv2%20%28unused%20title%20card%29.jpg",
+    "width": 2399,
+    "height": 1686,
+    "ratioClass": "wide"
   },
   {
     "id": "personal-firstpost-jpg",
@@ -312,11 +369,11 @@ export const allAssets: PortfolioAsset[] = [
     "durationSeconds": 14
   },
   {
-    "id": "personal-visuals-mp4",
-    "title": "visuals",
+    "id": "personal-personal-visual-mp4",
+    "title": "personal visual",
     "category": "PERSONAL",
     "type": "video",
-    "src": "/content/PERSONAL/visuals.mp4",
+    "src": "/content/PERSONAL/PERSONAL%20VISUAL.mp4",
     "width": 720,
     "height": 1280,
     "ratioClass": "tall",
@@ -335,15 +392,16 @@ export const allAssets: PortfolioAsset[] = [
 ];
 
 export const featuredAssetIds = [
-  "covers-22-tg-jpg",
-  "personal-idk-jpg",
   "covers-final-warning-glokk40spaz-jpg",
-  "flyers-dj-skelz-flyer-jpeg",
+  "videos-dexelz-snippet-promotional-video-graphics-sequencing-editing-mp4",
+  "covers-22-tg-jpg",
   "personal-trippy-visuals-mp4",
-  "covers-vanguard-prototype-jpg",
-  "graphics-horror-jpg",
-  "graphics-undergroundfest-jpg",
   "covers-b4-vic-vic-jpg",
+  "videos-stage-visuals-for-mp4",
+  "flyers-dj-skelz-flyer-jpeg",
+  "flyers-lade-flyer-jpg",
+  "graphics-horror-jpg",
+  "personal-idk-jpg",
   "personal-firstpost-jpg"
 ] as const;
 
@@ -356,4 +414,4 @@ export function getAssetsByCategory(category: CategoryName): PortfolioAsset[] {
 }
 
 export const xumm3rLogoAsset = allAssets.find((asset) => asset.id === "personal-xumm3r-logo-jpg");
-export const visualsAsset = allAssets.find((asset) => asset.id === "personal-visuals-mp4");
+export const visualsAsset = allAssets.find((asset) => asset.id === "personal-personal-visual-mp4");
